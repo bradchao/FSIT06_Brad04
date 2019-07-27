@@ -6,9 +6,11 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     private EditText input;
+    private TextView log;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,12 +19,17 @@ public class MainActivity extends AppCompatActivity {
         Log.v("brad", "onCreate");
 
         input = findViewById(R.id.input);
+        log = findViewById(R.id.log);
 
     }
 
     public void doGuess(View view){
         String stringInput = input.getText().toString();
         Log.v("brad", stringInput);
+
+        log.append(stringInput + "\n");
+        input.setText("");
+
     }
 
     @Override
